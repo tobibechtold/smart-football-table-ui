@@ -26,4 +26,12 @@ describe('ScoreComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display fixed score from service', () => {
+    fixture.detectChanges();
+    const cardContent = fixture.nativeElement.querySelector('.dashboard-card-content');
+    const score = cardContent.querySelector('h1').textContent;
+
+    expect(score).toBe('5 - 2');
+  });
 });

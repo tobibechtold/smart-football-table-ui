@@ -26,4 +26,12 @@ describe('VelocityComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display fixed velocity from service', () => {
+    fixture.detectChanges();
+    const cardContent = fixture.nativeElement.querySelector('.dashboard-card-content');
+    const velocity = cardContent.querySelector('h1').textContent;
+
+    expect(velocity).toBe('46.3 km/h');
+  });
 });
