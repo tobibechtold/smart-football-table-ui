@@ -10,6 +10,9 @@ import {
 } from '@angular/material';
 
 import { DashboardComponent } from './dashboard.component';
+import { HeatmapComponent } from '../heatmap/heatmap.component';
+import { ScoreComponent } from '../score/score.component';
+import { VelocityComponent } from '../velocity/velocity.component';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -17,7 +20,7 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DashboardComponent],
+      declarations: [DashboardComponent, HeatmapComponent, ScoreComponent, VelocityComponent],
       imports: [
         NoopAnimationsModule,
         LayoutModule,

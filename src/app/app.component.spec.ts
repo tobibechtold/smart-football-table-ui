@@ -13,6 +13,9 @@ import {
   MatSidenavModule, MatToolbarModule
 } from '@angular/material';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { VelocityComponent } from './components/velocity/velocity.component';
+import { ScoreComponent } from './components/score/score.component';
+import { HeatmapComponent } from './components/heatmap/heatmap.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -33,7 +36,10 @@ describe('AppComponent', () => {
       ],
       declarations: [
         AppComponent,
-        DashboardComponent
+        DashboardComponent,
+        VelocityComponent,
+        ScoreComponent,
+        HeatmapComponent
       ],
     }).compileComponents();
   }));

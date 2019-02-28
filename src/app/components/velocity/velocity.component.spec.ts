@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { VelocityComponent } from './velocity.component';
+import { VelocityService } from '../../services/velocity.service';
+import { MatCardModule, MatIconModule, MatMenuModule } from '@angular/material';
 
 describe('VelocityComponent', () => {
   let component: VelocityComponent;
@@ -8,7 +10,9 @@ describe('VelocityComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VelocityComponent ]
+      declarations: [ VelocityComponent ],
+      imports: [MatCardModule, MatMenuModule, MatIconModule],
+      providers: [VelocityService]
     })
     .compileComponents();
   }));

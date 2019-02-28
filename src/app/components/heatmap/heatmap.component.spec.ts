@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeatmapComponent } from './heatmap.component';
+import { HeatmapService } from '../../services/heatmap.service';
+import { MatCardModule, MatIconModule, MatMenuModule } from '@angular/material';
 
 describe('HeatmapComponent', () => {
   let component: HeatmapComponent;
@@ -8,7 +10,9 @@ describe('HeatmapComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeatmapComponent ]
+      declarations: [ HeatmapComponent ],
+      imports: [MatCardModule, MatMenuModule, MatIconModule],
+      providers: [HeatmapService]
     })
     .compileComponents();
   }));
