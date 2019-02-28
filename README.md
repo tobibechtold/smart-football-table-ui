@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/tobibechtold/smart-football-table-ui.svg?token=8wVuwsJQRcfTbuqY4xHB&branch=master)](https://travis-ci.com/tobibechtold/smart-football-table-ui)
 # SmartFootballTableUi
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
