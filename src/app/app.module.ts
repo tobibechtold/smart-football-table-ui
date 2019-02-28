@@ -10,11 +10,17 @@ import {
 } from '@angular/material';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { HeatmapComponent } from './components/heatmap/heatmap.component';
+import { ScoreComponent } from './components/score/score.component';
+import { VelocityComponent } from './components/velocity/velocity.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeatmapComponent,
+    ScoreComponent,
+    VelocityComponent
   ],
   imports: [
     BrowserModule,
