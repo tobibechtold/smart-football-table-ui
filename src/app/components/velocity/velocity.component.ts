@@ -7,7 +7,7 @@ import { VelocityService } from '../../services/velocity.service';
   styleUrls: ['./velocity.component.scss']
 })
 export class VelocityComponent implements OnInit {
-  private _velocity: number;
+  _velocity: number;
 
   constructor(private velocityService: VelocityService) { }
 

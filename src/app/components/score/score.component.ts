@@ -8,7 +8,7 @@ import { Score } from '../../models/score';
   styleUrls: ['./score.component.scss']
 })
 export class ScoreComponent implements OnInit {
-  private _score: Score;
+  _score: Score;
 
   constructor(private scoreService: ScoreService) { }
 
