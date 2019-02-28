@@ -8,11 +8,12 @@ branches:
     - master
 before_script:
   - npm install -g @angular/cli
+  - npm install codecov -g
 script:
   - ng lint
   - npm run test-headless
   - ng build --prod --base-href https://travis-ci.com/tobibechtold/smart-football-table-ui
 scripts:
-  - npm install codecov -g
+
 after_success:
   - codecov
