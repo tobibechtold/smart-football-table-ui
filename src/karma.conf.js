@@ -21,6 +21,14 @@ module.exports = function (config) {
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
     },
+    coverageReporter: {
+      reporters: [
+        // generates ./coverage/lcov.info
+        {type:'lcovonly', subdir: '.'},
+        // generates ./coverage/coverage-final.json
+        {type:'json', subdir: '.'},
+      ]
+    },
     reporters: ['progress', 'kjhtml', 'coverage'],
     port: 9876,
     colors: true,
