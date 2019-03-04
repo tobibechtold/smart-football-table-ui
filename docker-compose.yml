@@ -15,15 +15,15 @@ services:
 
   eclipse-mosquitto:
     image: eclipse-mosquitto
-      hostname: mosquitto
-      container_name: mosquitto
-      expose:
-        - "1883"
-        - "9001"
-      ports:
-        - "1883:1883"
-        - "9001:9001"
-      volumes:
-        - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
-      networks:
-        - default
+    hostname: mosquitto
+    container_name: mosquitto
+    expose:
+      - "1883"
+      - "9001"
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+    networks:
+      - default
