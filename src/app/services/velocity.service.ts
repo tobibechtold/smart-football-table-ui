@@ -11,10 +11,10 @@ export class VelocityService {
   constructor(private mqttService: MqttService) { }
 
   velocity(): Observable<IMqttMessage> {
-    return this.mqttService.observe('topic/velocity');
+    return this.mqttService.observe('velocity');
   }
 
   mockVelocityFromMqtt(velocity: Velocity): Observable<void> {
-    return this.mqttService.publish('topic/velocity', JSON.stringify(velocity));
+    return this.mqttService.publish('velocity', JSON.stringify(velocity));
   }
 }

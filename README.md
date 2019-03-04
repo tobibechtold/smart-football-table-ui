@@ -4,6 +4,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
 
+## MQTT messages
+| topic      | Description                  | Example payload       |  Implemented |
+| ---------- | ---------------------------- |---------------------- |------------- |
+| score      | The teams' scores            | { "score": [ 0, 3 ] } | ✔            |
+| foul       | Some foul has happened       | -                     | ✔            |
+| gameover   | A match ended                | { "winner": 0 }       | ✔            |
+| idle       | Is there action on the table | { "idle": true }      | X            |
+| velocity   | current ball velocity        | { "velocity": 46.3 }  | X            |
+| position   | current ball position        | { "x": 0, "y": 0 }    | X            |
+
 ## Run with docker
 
 Run `docker-compose up -d --build` for a dev server. Navigate to `http://localhost:4200/`.

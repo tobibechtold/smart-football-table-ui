@@ -8,7 +8,7 @@ import { Score } from '../../models/score';
   styleUrls: ['./score.component.scss']
 })
 export class ScoreComponent {
-  _score: Score = {scoreLeft: 0, scoreRight: 0};
+  _score: Score = {score: [0, 0]};
 
   constructor(private scoreService: ScoreService) {
     scoreService.score().subscribe(score => {

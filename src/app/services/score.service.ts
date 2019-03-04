@@ -11,10 +11,10 @@ export class ScoreService {
   constructor(private mqttService: MqttService) { }
 
   score(): Observable<IMqttMessage> {
-    return this.mqttService.observe('topic/goal');
+    return this.mqttService.observe('score');
   }
 
   mockScoreFromMqtt(score: Score): Observable<void> {
-    return this.mqttService.publish('topic/goal', JSON.stringify(score));
+    return this.mqttService.publish('score', JSON.stringify(score));
   }
 }

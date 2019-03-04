@@ -23,11 +23,11 @@ describe('ScoreService', () => {
 
   it('should return correct score from mqtt broker', (done) => {
     service.score().subscribe(message => {
-      expect(JSON.parse(message.payload.toString())).toEqual({scoreLeft: 1, scoreRight: 0});
+      expect(JSON.parse(message.payload.toString())).toEqual({score: [1, 0]});
       done();
     });
 
-    service.mockScoreFromMqtt({scoreLeft: 1, scoreRight: 0}).subscribe(() => {});
+    service.mockScoreFromMqtt({score: [1, 0]}).subscribe(() => {});
   });
 });
 

@@ -36,7 +36,7 @@ describe('ScoreComponent', () => {
   });
 
   it('should display fixed score', () => {
-    component._score = {scoreLeft: 1, scoreRight: 0};
+    component._score = {score: [1, 0]};
 
     fixture.detectChanges();
     const cardContent = fixture.nativeElement.querySelector('.dashboard-card-content');
