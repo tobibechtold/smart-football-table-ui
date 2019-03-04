@@ -14,7 +14,7 @@ export class ScoreService {
     return this.mqttService.observe('topic/goal');
   }
 
-  mockScoreFromMqtt(score: Score): void {
-    this.mqttService.unsafePublish('topic/goal', JSON.stringify(score));
+  mockScoreFromMqtt(score: Score): Observable<void> {
+    return this.mqttService.publish('topic/goal', JSON.stringify(score));
   }
 }

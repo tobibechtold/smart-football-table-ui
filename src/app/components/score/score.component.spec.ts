@@ -23,6 +23,7 @@ describe('ScoreComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ScoreComponent);
     component = fixture.componentInstance;
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 30000;
     fixture.detectChanges();
   });
 
@@ -30,16 +31,15 @@ describe('ScoreComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  fit('should display fixed score from service', fakeAsync(() => {
-    const service = TestBed.get(ScoreService);
+  it('should display fixed score from service', () => {
+    component._score = {scoreLeft: 1, scoreRight: 0};
 
-    service.mockScoreFromMqtt({scoreLeft: 1, scoreRight: 0});
-
+    fixture.detectChanges();
     const cardContent = fixture.nativeElement.querySelector('.dashboard-card-content');
     const score = cardContent.querySelector('h1').textContent;
 
     expect(score).toBe('1 - 0');
-  }));
+  });
 });
 
 export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {

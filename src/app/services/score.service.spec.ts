@@ -1,23 +1,34 @@
 import { TestBed } from '@angular/core/testing';
-
 import { ScoreService } from './score.service';
-import { IMqttClient, IMqttMessage, MqttModule, MqttService } from 'ngx-mqtt';
-import { Observable, of } from 'rxjs';
+import { IMqttServiceOptions, MqttModule, MqttService } from 'ngx-mqtt';
+
+export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
+  hostname: 'localhost',
+  port: 9001,
+};
 
 describe('ScoreService', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    imports: [MqttModule],
-    providers: [{provide: MqttService, useValue: MockMqttService}]
-  }));
+  let service: ScoreService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [MqttModule.forRoot(MQTT_SERVICE_OPTIONS)],
+      providers: [MqttService]
+    });
+    service = TestBed.get(ScoreService);
+  });
 
   it('should be created', () => {
-    const service: ScoreService = TestBed.get(ScoreService);
     expect(service).toBeTruthy();
+  });
+
+  it('should return correct score from mqtt broker', (done) => {
+    service.score().subscribe(message => {
+      expect(JSON.parse(message.payload.toString())).toEqual({scoreLeft: 1, scoreRight: 0});
+      done();
+    });
+
+    service.mockScoreFromMqtt({scoreLeft: 1, scoreRight: 0}).subscribe(() => {});
   });
 });
 
-export class MockMqttService extends MqttService {
-  observe(filterString: string): Observable<IMqttMessage> {
-    return of({topic: '', payload: undefined, cmd: undefined, dup: false, retain: false, messageId: 0, qos: 0});
-  }
-}
