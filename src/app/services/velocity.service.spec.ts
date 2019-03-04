@@ -23,8 +23,8 @@ describe('VelocityService', () => {
   });
 
   it('should return correct velocity from mqtt broker', (done) => {
-    service.velocity().subscribe(message => {
-      expect(JSON.parse(message.payload.toString())).toEqual({velocity: 43.3});
+    service.velocity().subscribe(velocity => {
+      expect(velocity).toEqual({velocity: 43.3});
       done();
     });
 

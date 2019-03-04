@@ -4,20 +4,24 @@ import { VelocityComponent } from './velocity.component';
 import { VelocityService } from '../../services/velocity.service';
 import { MatCardModule, MatIconModule, MatMenuModule } from '@angular/material';
 import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
+import { of } from 'rxjs';
 
 describe('VelocityComponent', () => {
   let component: VelocityComponent;
   let fixture: ComponentFixture<VelocityComponent>;
+  let velocityService;
   const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
     hostname: 'localhost',
     port: 9001,
   };
 
   beforeEach(async(() => {
+    velocityService = jasmine.createSpyObj('VelocityService', ['velocity']);
+    velocityService.velocity.and.returnValue(of({velocity: 46.3}));
     TestBed.configureTestingModule({
       declarations: [ VelocityComponent ],
       imports: [MatCardModule, MatMenuModule, MatIconModule, MqttModule.forRoot(MQTT_SERVICE_OPTIONS)],
-      providers: [VelocityService]
+      providers: [{provide: VelocityService, useValue: velocityService}]
     })
     .compileComponents();
   }));
@@ -33,9 +37,6 @@ describe('VelocityComponent', () => {
   });
 
   it('should display fixed velocity from service', () => {
-    component._velocity = {velocity: 46.3};
-
-    fixture.detectChanges();
     const cardContent = fixture.nativeElement.querySelector('.dashboard-card-content');
     const velocity = cardContent.querySelector('h1').textContent;
 

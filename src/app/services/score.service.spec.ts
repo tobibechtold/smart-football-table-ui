@@ -22,8 +22,8 @@ describe('ScoreService', () => {
   });
 
   it('should return correct score from mqtt broker', (done) => {
-    service.score().subscribe(message => {
-      expect(JSON.parse(message.payload.toString())).toEqual({score: [1, 0]});
+    service.score().subscribe(score => {
+      expect(score).toEqual({score: [1, 0]});
       done();
     });
 

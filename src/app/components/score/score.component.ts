@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ScoreService } from '../../services/score.service';
 import { Score } from '../../models/score';
 
@@ -12,8 +12,8 @@ export class ScoreComponent {
 
   constructor(private scoreService: ScoreService) {
     scoreService.score().subscribe(score => {
-      this._score = JSON.parse(score.payload.toString());
-      console.log(score.payload.toString());
+      this._score = score;
+      console.log(score);
     }, error1 => console.log(error1));
   }
 }

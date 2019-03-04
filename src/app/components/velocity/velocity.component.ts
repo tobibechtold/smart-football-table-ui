@@ -14,7 +14,7 @@ export class VelocityComponent implements OnInit {
 
   ngOnInit() {
     this.velocityService.velocity().subscribe(velocity =>
-      this._velocity = JSON.parse(velocity.payload.toString())
+      this._velocity = velocity
     );
   }
 

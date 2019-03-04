@@ -1,25 +1,26 @@
-import { async, ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
-
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ScoreComponent } from './score.component';
 import { ScoreService } from '../../services/score.service';
 import { MatCardModule, MatIconModule, MatMenuModule } from '@angular/material';
-import { IMqttMessage, IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
-import { Observable, of } from 'rxjs';
-import { Score } from '../../models/score';
+import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
+import { of } from 'rxjs';
 
 describe('ScoreComponent', () => {
   let component: ScoreComponent;
   let fixture: ComponentFixture<ScoreComponent>;
+  let scoreService;
   const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
     hostname: 'localhost',
     port: 9001,
   };
 
   beforeEach(async(() => {
+    scoreService = jasmine.createSpyObj('ScoreService', ['score']);
+    scoreService.score.and.returnValue(of({score: [1, 0]}));
     TestBed.configureTestingModule({
       declarations: [ ScoreComponent ],
       imports: [MatCardModule, MatMenuModule, MatIconModule, MqttModule.forRoot(MQTT_SERVICE_OPTIONS)],
-      providers: [ScoreService]
+      providers: [{provide: ScoreService, useValue: scoreService}]
     })
     .compileComponents();
   }));
@@ -36,9 +37,6 @@ describe('ScoreComponent', () => {
   });
 
   it('should display fixed score', () => {
-    component._score = {score: [1, 0]};
-
-    fixture.detectChanges();
     const cardContent = fixture.nativeElement.querySelector('.dashboard-card-content');
     const score = cardContent.querySelector('h1').textContent;
 
