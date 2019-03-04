@@ -33,7 +33,7 @@ describe('VelocityComponent', () => {
   });
 
   it('should display fixed velocity from service', () => {
-    component._velocity = 46.3;
+    component._velocity = {velocity: 46.3};
 
     fixture.detectChanges();
     const cardContent = fixture.nativeElement.querySelector('.dashboard-card-content');
