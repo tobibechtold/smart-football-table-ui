@@ -19,6 +19,11 @@ import { HeatmapComponent } from './components/heatmap/heatmap.component';
 import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
 
 describe('AppComponent', () => {
+  const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
+    hostname: 'localhost',
+    port: 9001,
+  };
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -52,8 +57,3 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 });
-
-export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
-  hostname: 'localhost',
-  port: 9001,
-};

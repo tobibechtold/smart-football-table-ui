@@ -18,6 +18,10 @@ import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
+  const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
+    hostname: 'localhost',
+    port: 9001,
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -45,8 +49,3 @@ describe('DashboardComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
-export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
-  hostname: 'localhost',
-  port: 9001,
-};

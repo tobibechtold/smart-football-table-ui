@@ -10,6 +10,10 @@ import { Score } from '../../models/score';
 describe('ScoreComponent', () => {
   let component: ScoreComponent;
   let fixture: ComponentFixture<ScoreComponent>;
+  const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
+    hostname: 'localhost',
+    port: 9001,
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -41,8 +45,3 @@ describe('ScoreComponent', () => {
     expect(score).toBe('1 - 0');
   });
 });
-
-export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
-  hostname: 'localhost',
-  port: 9001,
-};
