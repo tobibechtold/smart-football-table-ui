@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { IMqttMessage, MqttService } from 'ngx-mqtt';
 import { Score } from '../models/score';
-import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScoreService {
 
-  constructor() { }
+  constructor(private mqttService: MqttService) { }
 
-  score(): Observable<Score> {
-    return of({scoreLeft: 5, scoreRight: 2});
+  score(): Observable<IMqttMessage> {
+    return this.mqttService.observe('topic/goal');
+  }
+
+  mockScoreFromMqtt(score: Score): void {
+    this.mqttService.unsafePublish('topic/goal', JSON.stringify(score));
   }
 }

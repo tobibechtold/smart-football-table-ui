@@ -16,6 +16,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { VelocityComponent } from './components/velocity/velocity.component';
 import { ScoreComponent } from './components/score/score.component';
 import { HeatmapComponent } from './components/heatmap/heatmap.component';
+import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -32,7 +33,8 @@ describe('AppComponent', () => {
         MatGridListModule,
         MatCardModule,
         MatMenuModule,
-        LayoutModule
+        LayoutModule,
+        MqttModule.forRoot(MQTT_SERVICE_OPTIONS)
       ],
       declarations: [
         AppComponent,
@@ -50,3 +52,8 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 });
+
+export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
+  hostname: 'localhost',
+  port: 9001,
+};
