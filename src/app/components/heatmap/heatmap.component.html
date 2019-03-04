@@ -12,6 +12,6 @@
     </mat-card-title>
   </mat-card-header>
   <mat-card-content class="dashboard-card-content">
-    <h1>Hier könnte ihre Heatmap stehen</h1>
+    <div #heatmapDiv [style.width.px]="width? width: 500" [style.height.px]="height? height: 500"></div>
   </mat-card-content>
 </mat-card>
