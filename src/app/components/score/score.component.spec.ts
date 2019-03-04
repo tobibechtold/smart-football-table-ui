@@ -35,7 +35,7 @@ describe('ScoreComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display fixed score from service', () => {
+  it('should display fixed score', () => {
     component._score = {scoreLeft: 1, scoreRight: 0};
 
     fixture.detectChanges();

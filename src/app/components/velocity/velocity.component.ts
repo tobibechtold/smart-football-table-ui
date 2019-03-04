@@ -12,7 +12,7 @@ export class VelocityComponent implements OnInit {
   constructor(private velocityService: VelocityService) { }
 
   ngOnInit() {
-    this.velocityService.velocity().subscribe(velocity => this._velocity = velocity);
+    this.velocityService.velocity().subscribe(velocity => this._velocity = JSON.parse(velocity.payload.toString()));
   }
 
 }
