@@ -8,11 +8,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 | topic      | Description                  | Example payload       |  Implemented |
 | ---------- | ---------------------------- |---------------------- |------------- |
 | score      | The teams' scores            | { "score": [ 0, 3 ] } | ✔            |
-| foul       | Some foul has happened       | -                     | ✔            |
-| gameover   | A match ended                | { "winner": 0 }       | ✔            |
+| foul       | Some foul has happened       | -                     | X            |
+| gameover   | A match ended                | { "winner": 0 }       | X            |
 | idle       | Is there action on the table | { "idle": true }      | X            |
-| velocity   | current ball velocity        | { "velocity": 46.3 }  | X            |
-| position   | current ball position        | { "x": 0, "y": 0 }    | X            |
+| velocity   | current ball velocity        | { "velocity": 46.3 }  | ✔            |
+| position   | current ball position        | { "x": 0, "y": 0 }    | ✔            |
 
 ## Run with docker
 
