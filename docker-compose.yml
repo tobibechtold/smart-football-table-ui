@@ -27,3 +27,16 @@ services:
       - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
     networks:
       - default
+
+  led-control:
+    image: ledcontrol:0.0.1-SNAPSHOT
+    environment:
+      - device=/dev/ttyUSB4
+      - LEDS=73
+      - TTY=/dev/ttyUSB4
+      - MQTTHOST=mqtt
+      - MQTTPORT=1883
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0"
+
+
