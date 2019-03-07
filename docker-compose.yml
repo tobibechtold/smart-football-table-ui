@@ -11,7 +11,7 @@ services:
       - '.:/usr/src/app'
       - '/usr/src/app/node_modules'
     ports:
-      - '4200:4200'
+      - '80:80'
 
   eclipse-mosquitto:
     image: eclipse-mosquitto
