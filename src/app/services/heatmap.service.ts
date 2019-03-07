@@ -16,4 +16,8 @@ export class HeatmapService {
       return of(JSON.parse(message.payload.toString()));
     }));
   }
+
+  mockHeatmapDataFromMqtt(position: Position): Observable<void> {
+    return this.mqttService.publish('position', JSON.stringify(position));
+  }
 }
