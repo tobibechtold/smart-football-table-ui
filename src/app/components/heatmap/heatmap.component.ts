@@ -18,23 +18,21 @@ export class HeatmapComponent implements AfterViewInit {
   @Input()
   public width = 870;
 
-  constructor(private heatmapService: HeatmapService) { }
+  private heatMapInstance;
+
+  constructor(private heatmapService: HeatmapService) {
+    this.heatmapService.heatmapData().subscribe(position => {
+      if (this.heatMapInstance) {
+        this.heatMapInstance.addData({x: position.x, y: position.y, value: 1});
+      }
+    });
+  }
 
   ngAfterViewInit() {
-    const heatMapInstance = heatmap.create({
+    this.heatMapInstance = heatmap.create({
       container: this.heatmapDiv.nativeElement,
-    }).setData({data: [
-        {x: 3, y: 5, value: 5},
-        {x: 7, y: 9, value: 27},
-        {x: 5, y: 13, value: 55},
-        {x: 34, y: 6, value: 23},
-        {x: 45, y: 6, value: 14},
-        {x: 89, y: 4, value: 35},
-        {x: 89, y: 4, value: 100},
-        {x: 89, y: 90, value: 100},
-        {x: 650, y: 200, value: 30},
-        {x: 689, y: 90, value: 100},
-        {x: 489, y: 90, value: 100},
-      ], min: 0, max: 100});
+    });
+    this.heatMapInstance.setDataMin(0);
+    this.heatMapInstance.setDataMax(10);
   }
 }

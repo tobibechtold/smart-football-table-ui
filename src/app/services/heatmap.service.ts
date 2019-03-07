@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Position } from '../models/position';
+import { MqttService } from 'ngx-mqtt';
+import { switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeatmapService {
 
-  constructor() { }
+  constructor(private mqttService: MqttService) { }
 
-  heatmapData(): Observable<Array<Position>> {
-    return of([{x: 3, y: 5}, {x: 6, y: 34}, {x: 3, y: 5}, {x: 3, y: 5}, {x: 3, y: 5}]);
+  heatmapData(): Observable<Position> {
+    return this.mqttService.observe('position').pipe(switchMap(message => {
+      return of(JSON.parse(message.payload.toString()));
+    }));
   }
 }
