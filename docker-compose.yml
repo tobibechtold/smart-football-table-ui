@@ -29,7 +29,7 @@ services:
       - '80:80'
 
   led-control:
-    image: ledcontrol:0.0.1-SNAPSHOT
+    image: smart-football-table-ui-ledcontrol:0.0.1-SNAPSHOT
     environment:
       - device=/dev/ttyUSB0
       - LEDS=72
