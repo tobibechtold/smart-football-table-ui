@@ -2,17 +2,6 @@ version: '2.0'
 
 services:
 
-  smart-football-table-ui:
-    container_name: smart-football-table-ui
-    build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - '.:/usr/src/app'
-      - '/usr/src/app/node_modules'
-    ports:
-      - '80:80'
-
   eclipse-mosquitto:
     image: eclipse-mosquitto
     hostname: mosquitto
@@ -27,6 +16,17 @@ services:
       - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
     networks:
       - default
+
+  smart-football-table-ui:
+    container_name: smart-football-table-ui
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - '80:80'
 
   led-control:
     image: ledcontrol:0.0.1-SNAPSHOT
