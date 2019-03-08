@@ -32,7 +32,7 @@ services:
     image: ledcontrol:0.0.1-SNAPSHOT
     environment:
       - device=/dev/ttyUSB4
-      - LEDS=73
+      - LEDS=72
       - TTY=/dev/ttyUSB4
       - MQTTHOST=mqtt
       - MQTTPORT=1883
