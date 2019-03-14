@@ -12,12 +12,12 @@ export class VelocityService {
   constructor(private mqttService: MqttService) { }
 
   velocity(): Observable<Velocity> {
-    return this.mqttService.observe('velocity').pipe(switchMap(message => {
+    return this.mqttService.observe('game/velocity').pipe(switchMap(message => {
       return of(JSON.parse(message.payload.toString()));
     }));
   }
 
   mockVelocityFromMqtt(velocity: Velocity): Observable<void> {
-    return this.mqttService.publish('velocity', JSON.stringify(velocity));
+    return this.mqttService.publish('game/velocity', JSON.stringify(velocity));
   }
 }

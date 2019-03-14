@@ -12,12 +12,12 @@ export class ScoreService {
   constructor(private mqttService: MqttService) { }
 
   score(): Observable<Score> {
-    return this.mqttService.observe('score').pipe(switchMap(message =>  {
+    return this.mqttService.observe('game/score').pipe(switchMap(message =>  {
       return of(JSON.parse(message.payload.toString()));
     }));
   }
 
   mockScoreFromMqtt(score: Score): Observable<void> {
-    return this.mqttService.publish('score', JSON.stringify(score));
+    return this.mqttService.publish('game/score', JSON.stringify(score));
   }
 }
