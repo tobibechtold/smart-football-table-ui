@@ -12,12 +12,12 @@ export class HeatmapService {
   constructor(private mqttService: MqttService) { }
 
   heatmapData(): Observable<Position> {
-    return this.mqttService.observe('game/position').pipe(switchMap(message => {
+    return this.mqttService.observe('ball/position').pipe(switchMap(message => {
       return of(JSON.parse(message.payload.toString()));
     }));
   }
 
   mockHeatmapDataFromMqtt(position: Position): Observable<void> {
-    return this.mqttService.publish('game/position', JSON.stringify(position));
+    return this.mqttService.publish('ball/position', JSON.stringify(position));
   }
 }
