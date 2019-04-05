@@ -2,6 +2,7 @@ import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { HeatmapService } from '../../services/heatmap.service';
 import * as heatmap from 'heatmap.js';
 import { GameStateService } from '../../services/game-state.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-heatmap',
@@ -32,7 +33,7 @@ export class HeatmapComponent implements AfterViewInit {
 
     this.gameStateService.gameStart().subscribe(() => {
       if (this.heatMapInstance) {
-        this.heatMapInstance.setData({max: 10, min: 0, data: []});
+        this.heatMapInstance.setData({max: environment.heatmapMaxData, min: environment.heatmapMinData, data: []});
       }
     });
   }
@@ -41,7 +42,7 @@ export class HeatmapComponent implements AfterViewInit {
     this.heatMapInstance = heatmap.create({
       container: this.heatmapDiv.nativeElement,
     });
-    this.heatMapInstance.setDataMin(0);
-    this.heatMapInstance.setDataMax(10);
+    this.heatMapInstance.setDataMin(environment.heatmapMinData);
+    this.heatMapInstance.setDataMax(environment.heatmapMaxData);
   }
 }

@@ -1,12 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { ScoreService } from './score.service';
 import { IMqttServiceOptions, MqttModule, MqttService } from 'ngx-mqtt';
+import { environment } from '../../environments/environment';
 
 describe('ScoreService', () => {
   let service: ScoreService;
   const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
-    hostname: 'localhost',
-    port: 9001,
+    hostname: environment.mqttHost,
+    port: environment.mqttPort,
   };
 
   beforeEach(() => {

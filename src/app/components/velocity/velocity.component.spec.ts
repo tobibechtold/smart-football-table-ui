@@ -6,6 +6,7 @@ import { MatCardModule, MatIconModule, MatMenuModule } from '@angular/material';
 import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
 import { of } from 'rxjs';
 import { GameStateService } from '../../services/game-state.service';
+import { environment } from '../../../environments/environment';
 
 describe('VelocityComponent', () => {
   let component: VelocityComponent;
@@ -13,8 +14,8 @@ describe('VelocityComponent', () => {
   let velocityService;
   let gameStateService;
   const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
-    hostname: 'localhost',
-    port: 9001,
+    hostname: environment.mqttHost,
+    port: environment.mqttPort,
   };
 
   beforeEach(async(() => {

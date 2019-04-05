@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  mqttHost: 'localhost',
+  mqttPort: 9001,
+  heatmapMinData: 0,
+  heatmapMaxData: 10,
 };
 
 /*

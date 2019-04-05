@@ -4,6 +4,29 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
 
+## Configuration
+
+In order to configure the UI you can edit the `environment.ts` and `environment.prod.ts` files. If you are running the 
+app with docker only the `environment.prod.ts` file will be used. For dev configuration edit the `environment.ts`
+file. The following configurations are possible:
+
+| config value               | Description                                             | Example                   |
+| -------------------------- | ------------------------------------------------------- |---------------------------|
+| mqttHost                   | Sets the host adress of your mqtt broker                | 'localhost'               |
+| mqttPort                   | The port your mqtt broker runs on (Websocket port)      | 9001                      |
+| heatmapMinData             | The minimum Value of a point on the heatmap             | 0                         |
+| heatmapMaxData             | The maximum Value of a point on the heatmap             | 10                         |
+
+### About Heatmap Max and Min
+Heatmap Points contain of three values. X coordinate Y coordinate and a value associated with this specific point. Every time the ball 
+reaches this position, the value of this coordinate is increased. If your heatmapMaxData is set to 10 for example this coordinate will be coloured 
+in deep red after the 10th time the ball reached this position. If the heatmap gets too crowded too fast you will have to increase the heatmapMaxData value
+in order to grow the heatmap at a lower pace. 
+
+Conclusion: If you want to have a fast buildup of the heatmap you have to lower the heatmapMaxData Value. If you want the heatmap to populate at a slow
+pace over time you have to increase the heatmapMaxData value.
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

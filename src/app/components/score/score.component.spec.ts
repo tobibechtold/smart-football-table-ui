@@ -4,14 +4,15 @@ import { ScoreService } from '../../services/score.service';
 import { MatCardModule, MatIconModule, MatMenuModule } from '@angular/material';
 import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
 import { of } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 describe('ScoreComponent', () => {
   let component: ScoreComponent;
   let fixture: ComponentFixture<ScoreComponent>;
   let scoreService;
   const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
-    hostname: 'localhost',
-    port: 9001,
+    hostname: environment.mqttHost,
+    port: environment.mqttPort,
   };
 
   beforeEach(async(() => {

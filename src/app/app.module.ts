@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,10 +14,11 @@ import { HeatmapComponent } from './components/heatmap/heatmap.component';
 import { ScoreComponent } from './components/score/score.component';
 import { VelocityComponent } from './components/velocity/velocity.component';
 import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
+import { environment } from '../environments/environment';
 
 export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
-  hostname: 'localhost',
-  port: 9001,
+  hostname: environment.mqttHost,
+  port: environment.mqttPort,
 };
 
 @NgModule({

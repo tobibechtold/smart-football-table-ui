@@ -2,12 +2,13 @@ import { TestBed } from '@angular/core/testing';
 
 import { GameStateService } from './game-state.service';
 import { IMqttServiceOptions, MqttModule, MqttService } from 'ngx-mqtt';
+import { environment } from '../../environments/environment';
 
 describe('GameStateService', () => {
   let service: GameStateService;
   const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
-    hostname: 'localhost',
-    port: 9001,
+    hostname: environment.mqttHost,
+    port: environment.mqttPort,
   };
 
   beforeEach(() => {

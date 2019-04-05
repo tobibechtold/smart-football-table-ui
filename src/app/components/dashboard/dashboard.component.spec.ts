@@ -14,13 +14,14 @@ import { HeatmapComponent } from '../heatmap/heatmap.component';
 import { ScoreComponent } from '../score/score.component';
 import { VelocityComponent } from '../velocity/velocity.component';
 import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
+import { environment } from '../../../environments/environment';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
   const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
-    hostname: 'localhost',
-    port: 9001,
+    hostname: environment.mqttHost,
+    port: environment.mqttPort,
   };
 
   beforeEach(async(() => {
