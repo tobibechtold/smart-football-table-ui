@@ -1,6 +1,7 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { HeatmapService } from '../../services/heatmap.service';
 import * as heatmap from 'heatmap.js';
+import { GameStateService } from '../../services/game-state.service';
 
 @Component({
   selector: 'app-heatmap',
@@ -20,10 +21,16 @@ export class HeatmapComponent implements AfterViewInit {
 
   private heatMapInstance;
 
-  constructor(private heatmapService: HeatmapService) {
+  constructor(private heatmapService: HeatmapService, private gameStateService: GameStateService) {
     this.heatmapService.heatmapData().subscribe(position => {
       if (this.heatMapInstance) {
         this.heatMapInstance.addData({x: position.x, y: position.y, value: 1});
+      }
+    });
+
+    this.gameStateService.gameStart().subscribe(() => {
+      if (this.heatMapInstance) {
+        this.heatMapInstance.setData({max: 10, min: 0, data: []});
       }
     });
   }

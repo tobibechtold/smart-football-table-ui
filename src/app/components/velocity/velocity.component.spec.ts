@@ -5,11 +5,13 @@ import { VelocityService } from '../../services/velocity.service';
 import { MatCardModule, MatIconModule, MatMenuModule } from '@angular/material';
 import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
 import { of } from 'rxjs';
+import { GameStateService } from '../../services/game-state.service';
 
 describe('VelocityComponent', () => {
   let component: VelocityComponent;
   let fixture: ComponentFixture<VelocityComponent>;
   let velocityService;
+  let gameStateService;
   const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
     hostname: 'localhost',
     port: 9001,
@@ -18,10 +20,12 @@ describe('VelocityComponent', () => {
   beforeEach(async(() => {
     velocityService = jasmine.createSpyObj('VelocityService', ['velocity']);
     velocityService.velocity.and.returnValue(of({velocity: 46.3}));
+    gameStateService = jasmine.createSpyObj('GameStateService', ['gameStart', 'gameOver']);
+    gameStateService.gameStart.and.returnValue(of({}));
     TestBed.configureTestingModule({
       declarations: [ VelocityComponent ],
       imports: [MatCardModule, MatMenuModule, MatIconModule, MqttModule.forRoot(MQTT_SERVICE_OPTIONS)],
-      providers: [{provide: VelocityService, useValue: velocityService}]
+      providers: [{provide: VelocityService, useValue: velocityService}, {provide: GameStateService, useValue: gameStateService}]
     })
     .compileComponents();
   }));

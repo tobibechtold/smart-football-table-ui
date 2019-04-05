@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VelocityService } from '../../services/velocity.service';
 import { Velocity } from '../../models/velocity';
+import { GameStateService } from '../../services/game-state.service';
 
 @Component({
   selector: 'app-velocity',
@@ -10,9 +11,11 @@ import { Velocity } from '../../models/velocity';
 export class VelocityComponent implements OnInit {
   _velocity: Velocity = {velocity: 0};
 
-  constructor(private velocityService: VelocityService) { }
+  constructor(private velocityService: VelocityService, private gameStateService: GameStateService) { }
 
   ngOnInit() {
+    this.gameStateService.gameStart().subscribe(message => this._velocity = {velocity: 0});
+
     this.velocityService.velocity().subscribe(velocity =>
       this._velocity = velocity
     );
