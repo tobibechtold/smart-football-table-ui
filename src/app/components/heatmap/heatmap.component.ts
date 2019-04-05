@@ -24,7 +24,9 @@ export class HeatmapComponent implements AfterViewInit {
   constructor(private heatmapService: HeatmapService, private gameStateService: GameStateService) {
     this.heatmapService.heatmapData().subscribe(position => {
       if (this.heatMapInstance) {
-        this.heatMapInstance.addData({x: position.x, y: position.y, value: 1});
+        const xTranslated = position.x * this.width;
+        const yTranslated = position.y * this.height;
+        this.heatMapInstance.addData({x: xTranslated, y: yTranslated, value: 1});
       }
     });
 
