@@ -13,7 +13,9 @@ export class VelocityService {
 
   velocity(): Observable<Velocity> {
     return this.mqttService.observe('ball/velocity').pipe(switchMap(message => {
-      return of(JSON.parse(message.payload.toString()));
+      const velocity: Velocity = JSON.parse(message.payload.toString());
+      const roundedVelocity = Math.round(velocity.velocity);
+      return of({velocity: roundedVelocity});
     }));
   }
 

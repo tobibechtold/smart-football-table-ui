@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
 
 import { VelocityComponent } from './velocity.component';
 import { VelocityService } from '../../services/velocity.service';
@@ -20,7 +20,7 @@ describe('VelocityComponent', () => {
 
   beforeEach(async(() => {
     velocityService = jasmine.createSpyObj('VelocityService', ['velocity']);
-    velocityService.velocity.and.returnValue(of({velocity: 46.3}));
+    velocityService.velocity.and.returnValue(of({velocity: 46}));
     gameStateService = jasmine.createSpyObj('GameStateService', ['gameStart', 'gameOver']);
     gameStateService.gameStart.and.returnValue(of({}));
     TestBed.configureTestingModule({
@@ -41,10 +41,14 @@ describe('VelocityComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display fixed velocity from service', () => {
-    const cardContent = fixture.nativeElement.querySelector('.dashboard-card-content');
-    const velocity = cardContent.querySelector('h1').textContent;
+  it('should display fixed velocity from service', fakeAsync(() => {
+    jasmine.clock().tick(1000 + 1);
+    fixture.detectChanges();
 
-    expect(velocity).toBe('46.3 km/h');
-  });
+    fixture.whenStable().then(() => {
+      const cardContent = fixture.nativeElement.querySelector('.dashboard-card-content');
+      const velocity = cardContent.querySelector('h1').textContent;
+      expect(velocity).toBe('46 km/h');
+    });
+  }));
 });

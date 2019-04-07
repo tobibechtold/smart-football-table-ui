@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { VelocityService } from '../../services/velocity.service';
 import { Velocity } from '../../models/velocity';
 import { GameStateService } from '../../services/game-state.service';
+import { interval } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-velocity',
@@ -16,9 +18,10 @@ export class VelocityComponent implements OnInit {
   ngOnInit() {
     this.gameStateService.gameStart().subscribe(message => this._velocity = {velocity: 0});
 
-    this.velocityService.velocity().subscribe(velocity =>
-      this._velocity = velocity
-    );
+      this.velocityService.velocity().subscribe(velocity => {
+        setTimeout(() => {
+          this._velocity = velocity;
+        }, 1000);
+      });
   }
-
 }

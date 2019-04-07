@@ -25,10 +25,10 @@ describe('HeatmapService', () => {
 
   it('should return correct heatmap data from mqtt broker', (done) => {
     service.heatmapData().subscribe(position => {
-      expect(position).toEqual({x: 0, y: 0});
+      expect(position).toEqual({x: 0.25, y: 0.46});
       done();
     });
 
-    service.mockHeatmapDataFromMqtt({x: 0, y: 0}).subscribe(() => {});
+    service.mockHeatmapDataFromMqtt({x: 0.2456745, y: 0.4566707007}).subscribe(() => {});
   });
 });
