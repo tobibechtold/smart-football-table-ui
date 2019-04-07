@@ -6,7 +6,7 @@ import {
   MatCardModule,
   MatGridListModule,
   MatIconModule,
-  MatMenuModule,
+  MatMenuModule, MatSnackBarModule,
 } from '@angular/material';
 
 import { DashboardComponent } from './dashboard.component';
@@ -32,6 +32,7 @@ describe('DashboardComponent', () => {
         LayoutModule,
         MatButtonModule,
         MatCardModule,
+        MatSnackBarModule,
         MatGridListModule,
         MatIconModule,
         MatMenuModule,

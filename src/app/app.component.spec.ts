@@ -10,7 +10,7 @@ import {
   MatGridListModule,
   MatIconModule, MatListModule,
   MatMenuModule,
-  MatSidenavModule, MatToolbarModule
+  MatSidenavModule, MatSnackBarModule, MatToolbarModule
 } from '@angular/material';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { VelocityComponent } from './components/velocity/velocity.component';
@@ -34,6 +34,7 @@ describe('AppComponent', () => {
         MatSidenavModule,
         MatToolbarModule,
         MatIconModule,
+        MatSnackBarModule,
         MatListModule,
         MatGridListModule,
         MatCardModule,
