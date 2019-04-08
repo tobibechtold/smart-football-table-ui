@@ -19,9 +19,7 @@ export class VelocityComponent implements OnInit {
     this.gameStateService.gameStart().subscribe(message => this._velocity = {velocity: 0});
 
       this.velocityService.velocity().subscribe(velocity => {
-        setTimeout(() => {
           this._velocity = velocity;
-        }, 1000);
       });
   }
 }
