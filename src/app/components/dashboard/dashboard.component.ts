@@ -3,6 +3,7 @@ import { ScoreService } from '../../services/score.service';
 import { MatSnackBar } from '@angular/material';
 import { GameStateService } from '../../services/game-state.service';
 import { SnackBarMessageComponent } from '../snack-bar-message/snack-bar-message.component';
+import { Score } from '../../models/score';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,17 +18,24 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.scoreService.score().subscribe(score => {
-      this.snackBar.openFromComponent(
-        SnackBarMessageComponent,
-        {duration: 5000, data: 'GOOOOAL! Score is now ' + score.score[0] + ' - ' + score.score[1]}
-        );
+      if (!this.isZeroZero(score)) {
+        this.showToast('GOOOOAL! Score is now' + ' ' + score.score[0] + ' - ' + score.score[1], 5000);
+      }
     });
 
     this.gameStateService.gameOver().subscribe(winner => {
-      this.snackBar.openFromComponent(
-        SnackBarMessageComponent,
-        {duration: 15000, data: 'Team ' + winner.winners[0] + ' won the game'}
-      );
+      this.showToast('Team ' + winner.winners[0] + ' won the game', 15000);
     });
+  }
+
+  private showToast(message: string, duration: number): void {
+    this.snackBar.openFromComponent(
+      SnackBarMessageComponent,
+      {duration: duration, data: message}
+    );
+  }
+
+  private isZeroZero(score: Score): boolean {
+    return (score.score[0] === 0) && (score.score[1] === 0);
   }
 }
