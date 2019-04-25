@@ -2,7 +2,8 @@
 [![codecov](https://codecov.io/gh/tobibechtold/smart-football-table-ui/branch/master/graph/badge.svg?token=3aFLC5Mwqa)](https://codecov.io/gh/tobibechtold/smart-football-table-ui)
 # SmartFootballTableUi
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
+## Prerequesites
+To interact with the UI and run the unit tests a mqtt broker with websockets enabled is needed. If your mqtt broker is not running on localhost:9001 (websocket port) you will have to edit the `environment.ts` and `environment.prod.ts` files. See chapter Configuration.
 
 ## Configuration
 
