@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/smart-football-table/smart-football-table-ui.svg?branch=master)](https://travis-ci.com/smart-football-table/smart-football-table-ui)
-[![codecov](https://codecov.io/gh/tobibechtold/smart-football-table-ui/branch/master/graph/badge.svg?token=3aFLC5Mwqa)](https://codecov.io/gh/tobibechtold/smart-football-table-ui)
+[![codecov](https://codecov.io/gh/smart-football-table/smart-football-table-ui/branch/master/graph/badge.svg?token=3aFLC5Mwqa)](https://codecov.io/gh/smart-football-table/smart-football-table-ui)
 # SmartFootballTableUi
 
 This is the user interface of the @smart-football-table project. It is purely developed with Angular and uses the MQTT protocol to communicate with the other modules of this project.
