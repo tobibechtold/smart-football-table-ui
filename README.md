@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/tobibechtold/smart-football-table-ui.svg?token=8wVuwsJQRcfTbuqY4xHB&branch=master)](https://travis-ci.com/tobibechtold/smart-football-table-ui)
+[![Build Status](https://travis-ci.com/smart-football-table/smart-football-table-ui.svg?branch=master)](https://travis-ci.com/smart-football-table/smart-football-table-ui)
 [![codecov](https://codecov.io/gh/tobibechtold/smart-football-table-ui/branch/master/graph/badge.svg?token=3aFLC5Mwqa)](https://codecov.io/gh/tobibechtold/smart-football-table-ui)
 # SmartFootballTableUi
 
