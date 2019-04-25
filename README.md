@@ -2,8 +2,11 @@
 [![codecov](https://codecov.io/gh/tobibechtold/smart-football-table-ui/branch/master/graph/badge.svg?token=3aFLC5Mwqa)](https://codecov.io/gh/tobibechtold/smart-football-table-ui)
 # SmartFootballTableUi
 
+This is the user interface of the @smart-football-table project. It is purely developed with Angular and uses the MQTT protocol to communicate with the other modules of this project.
+
 ## Prerequesites
-To interact with the UI and run the unit tests a mqtt broker with websockets enabled is needed. If your mqtt broker is not running on localhost:9001 (websocket port) you will have to edit the `environment.ts` and `environment.prod.ts` files. See chapter Configuration.
+
+To interact with the UI and run the unit tests a mqtt broker with websockets enabled is needed. If your mqtt broker is not running on localhost:9001 (websocket port) you will have to edit the `environment.ts` and `environment.prod.ts` files. See chapter Configuration for further information.
 
 ## Configuration
 
@@ -26,7 +29,6 @@ in order to grow the heatmap at a lower pace.
 
 Conclusion: If you want to have a fast buildup of the heatmap you have to lower the heatmapMaxData Value. If you want the heatmap to populate at a slow
 pace over time you have to increase the heatmapMaxData value.
-
 
 ## Development server
 
