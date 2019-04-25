@@ -14,12 +14,12 @@ In order to configure the UI you can edit the `environment.ts` and `environment.
 app with docker only the `environment.prod.ts` file will be used. For dev configuration edit the `environment.ts`
 file. The following configurations are possible:
 
-| config value               | Description                                             | Example                   |
+| config value               | Description                                             | Example (Default value)   |
 | -------------------------- | ------------------------------------------------------- |---------------------------|
 | mqttHost                   | Sets the host adress of your mqtt broker                | 'localhost'               |
 | mqttPort                   | The port your mqtt broker runs on (Websocket port)      | 9001                      |
 | heatmapMinData             | The minimum Value of a point on the heatmap             | 0                         |
-| heatmapMaxData             | The maximum Value of a point on the heatmap             | 10                         |
+| heatmapMaxData             | The maximum Value of a point on the heatmap             | 10                        |
 
 ### About Heatmap Max and Min
 Heatmap Points contain of three values. X coordinate Y coordinate and a value associated with this specific point. Every time the ball 
