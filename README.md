@@ -23,7 +23,7 @@ file. The following configurations are possible:
 | heatmapMaxData             | The maximum Value of a point on the heatmap             | 10                        |
 
 ### About Heatmap Max and Min
-Heatmap Points contain of three values. X coordinate Y coordinate and a value associated with this specific point. Every time the ball 
+Heatmap Points consist of three values. A "X" coordinate, a "Y" coordinate and a "value" associated with this specific point. Every time the ball 
 reaches this position, the value of this coordinate is increased. If your heatmapMaxData is set to 10 for example this coordinate will be coloured 
 in deep red after the 10th time the ball reached this position. If the heatmap gets too crowded too fast you will have to increase the heatmapMaxData value
 in order to grow the heatmap at a lower pace. 
