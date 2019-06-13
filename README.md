@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.com/smart-football-table/smart-football-table-ui.svg?branch=master)](https://travis-ci.com/smart-football-table/smart-football-table-ui)
 [![codecov](https://codecov.io/gh/smart-football-table/smart-football-table-ui/branch/master/graph/badge.svg?token=3aFLC5Mwqa)](https://codecov.io/gh/smart-football-table/smart-football-table-ui)
 [![BCH compliance](https://bettercodehub.com/edge/badge/smart-football-table/smart-football-table-ui?branch=master)](https://bettercodehub.com/)
+[![Known Vulnerabilities](https://snyk.io/test/github/smart-football-table/smart-football-table-ui/badge.svg?targetFile=pom.xml)](https://snyk.io/test/github/smart-football-table/smart-football-table-ui?targetFile=pom.xml)
 # SmartFootballTableUi
 
 This is the user interface of the @smart-football-table project. It is purely developed with Angular and uses the MQTT protocol to communicate with the other modules of this project.
