@@ -5,6 +5,7 @@ dist: trusty
 sudo: required
 branches:
   only:
+    - gh-pages
     - /.*/
 services:
   - docker
