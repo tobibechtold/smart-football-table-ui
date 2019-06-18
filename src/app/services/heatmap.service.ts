@@ -12,16 +12,17 @@ export class HeatmapService {
   constructor(private mqttService: MqttService) { }
 
   heatmapData(): Observable<Position> {
-    return this.mqttService.observe('ball/position').pipe(switchMap(message => {
-      const position = JSON.parse(message.payload.toString());
-      const roundedXValue = this.roundToTwoFractionDigits(position.x);
-      const roundedYValue = this.roundToTwoFractionDigits(position.y);
+    return this.mqttService.observe('ball/position/rel').pipe(switchMap(message => {
+      const payload = message.payload.toString();
+      const values = payload.split(',');
+      const roundedXValue = this.roundToTwoFractionDigits(Number(values[0]));
+      const roundedYValue = this.roundToTwoFractionDigits(Number(values[1]));
       return of({x: roundedXValue, y: roundedYValue});
     }));
   }
 
   mockHeatmapDataFromMqtt(position: Position): Observable<void> {
-    return this.mqttService.publish('ball/position', JSON.stringify(position));
+    return this.mqttService.publish('ball/position/rel', position.x.toString() + ',' + position.y.toString());
   }
 
   private roundToTwoFractionDigits(value: number): number {

@@ -12,20 +12,39 @@ import { Score } from '../../models/score';
 })
 export class DashboardComponent implements OnInit {
 
+  _score: Score = {score: [0, 0]};
+
   constructor(private scoreService: ScoreService,
               private gameStateService: GameStateService,
               private snackBar: MatSnackBar) {}
 
   ngOnInit() {
-    this.scoreService.score().subscribe(score => {
-      if (!this.isZeroZero(score)) {
-        this.showToast('GOOOOAL! Score is now' + ' ' + score.score[0] + ' - ' + score.score[1], 5000);
-      }
+    this.scoreService.score(0).subscribe(score => {
+      this._score.score[0] = score;
+      this.showScoreToast();
+    });
+
+    this.scoreService.score(1).subscribe(score => {
+      this._score.score[1] = score;
+      this.showScoreToast();
     });
 
     this.gameStateService.gameOver().subscribe(winner => {
-      this.showToast('Team ' + winner.winners[0] + ' won the game', 15000);
+      let message: string;
+
+      if (winner.winners.length > 1) {
+        message = 'Its a draw';
+      } else {
+        message = 'Team ' + winner.winners[0] + ' won the game';
+      }
+      this.showToast(message, 15000);
     });
+  }
+
+  private showScoreToast() {
+    if (!this.isZeroZero(this._score)) {
+      this.showToast('GOOOOAL! Score is now' + ' ' + this._score.score[0] + ' - ' + this._score.score[1], 5000);
+    }
   }
 
   private showToast(message: string, duration: number): void {

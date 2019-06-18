@@ -17,7 +17,7 @@ describe('ScoreComponent', () => {
 
   beforeEach(async(() => {
     scoreService = jasmine.createSpyObj('ScoreService', ['score']);
-    scoreService.score.and.returnValue(of({score: [1, 0]}));
+    scoreService.score.and.returnValue(of(1));
     TestBed.configureTestingModule({
       declarations: [ ScoreComponent ],
       imports: [MatCardModule, MatMenuModule, MatIconModule, MqttModule.forRoot(MQTT_SERVICE_OPTIONS)],
@@ -41,6 +41,6 @@ describe('ScoreComponent', () => {
     const cardContent = fixture.nativeElement.querySelector('.dashboard-card-content');
     const score = cardContent.querySelector('h1').textContent;
 
-    expect(score).toBe('1 - 0');
+    expect(score).toBe('1 - 1');
   });
 });

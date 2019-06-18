@@ -17,7 +17,12 @@ export class GameStateService {
 
   gameOver(): Observable<Winner> {
     return this.mqttService.observe('game/gameover').pipe(switchMap(message => {
-      return of(JSON.parse(message.payload.toString()));
+      const payload = message.payload.toString().split(',');
+      const winners: Array<number> = [];
+      payload.forEach(winner => {
+        winners.push(Number(winner));
+      });
+      return of({winners: winners});
     }));
   }
 
@@ -26,6 +31,7 @@ export class GameStateService {
   }
 
   mockGameOverFromMqtt(winner: Winner): Observable<void> {
-    return this.mqttService.publish('game/gameover', JSON.stringify(winner));
+    const winnerString = winner.winners.join(',');
+    return this.mqttService.publish('game/gameover', winnerString);
   }
 }

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { MqttService } from 'ngx-mqtt';
-import { Score } from '../models/score';
 import { switchMap } from 'rxjs/operators';
 
 @Injectable({
@@ -11,13 +10,13 @@ export class ScoreService {
 
   constructor(private mqttService: MqttService) { }
 
-  score(): Observable<Score> {
-    return this.mqttService.observe('game/score').pipe(switchMap(message =>  {
-      return of(JSON.parse(message.payload.toString()));
+  score(teamId: number): Observable<number> {
+    return this.mqttService.observe('game/score/' + teamId).pipe(switchMap(message =>  {
+      return of(Number(message.payload.toString()));
     }));
   }
 
-  mockScoreFromMqtt(score: Score): Observable<void> {
-    return this.mqttService.publish('game/score', JSON.stringify(score));
+  mockScoreFromMqtt(teamId: number, score: number): Observable<void> {
+    return this.mqttService.publish('game/score/' + teamId, score.toString());
   }
 }
