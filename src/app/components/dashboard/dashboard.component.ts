@@ -19,13 +19,8 @@ export class DashboardComponent implements OnInit {
               private snackBar: MatSnackBar) {}
 
   ngOnInit() {
-    this.scoreService.score(0).subscribe(score => {
-      this._score.score[0] = score;
-      this.showScoreToast();
-    });
-
-    this.scoreService.score(1).subscribe(score => {
-      this._score.score[1] = score;
+    this.scoreService.teamScored().subscribe(teamId => {
+      this._score.score[teamId] = this._score.score[teamId] + 1;
       this.showScoreToast();
     });
 

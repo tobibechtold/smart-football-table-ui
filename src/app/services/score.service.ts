@@ -16,6 +16,12 @@ export class ScoreService {
     }));
   }
 
+  teamScored(): Observable<number> {
+    return this.mqttService.observe('team/scored').pipe(switchMap(message => {
+      return of(Number(message.payload.toString()));
+    }));
+  }
+
   mockScoreFromMqtt(teamId: number, score: number): Observable<void> {
     return this.mqttService.publish('team/score/' + teamId, score.toString());
   }
