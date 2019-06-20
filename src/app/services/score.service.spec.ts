@@ -39,5 +39,14 @@ describe('ScoreService', () => {
 
     service.mockScoreFromMqtt(1, 0).subscribe(() => {});
   });
+
+  it('should return correct teamId when team scored', (done) => {
+    service.teamScored().subscribe(teamId => {
+      expect(teamId).toEqual(1);
+      done();
+    });
+
+    service.mockTeamScoredFromMqtt(1).subscribe(() => {});
+  });
 });
 

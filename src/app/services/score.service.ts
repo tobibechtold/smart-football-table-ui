@@ -25,4 +25,8 @@ export class ScoreService {
   mockScoreFromMqtt(teamId: number, score: number): Observable<void> {
     return this.mqttService.publish('team/score/' + teamId, score.toString());
   }
+
+  mockTeamScoredFromMqtt(teamId: number): Observable<void> {
+    return this.mqttService.publish('team/scored', teamId.toString());
+  }
 }
