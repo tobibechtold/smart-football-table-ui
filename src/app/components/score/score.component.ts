@@ -11,9 +11,12 @@ export class ScoreComponent {
   _score: Score = {score: [0, 0]};
 
   constructor(private scoreService: ScoreService) {
-    scoreService.score().subscribe(score => {
-      this._score = score;
-      console.log(score);
-    }, error1 => console.log(error1));
+    scoreService.score(0).subscribe(score => {
+      this._score.score[0] = score;
+    });
+
+    scoreService.score(1).subscribe(score => {
+      this._score.score[1] = score;
+    });
   }
 }

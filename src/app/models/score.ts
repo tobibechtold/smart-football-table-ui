@@ -1,3 +1,3 @@
 export class Score {
-  constructor(readonly score: Array<number>) {}
+  constructor(public score: Array<number>) {}
 }

@@ -12,14 +12,16 @@ export class VelocityService {
   constructor(private mqttService: MqttService) { }
 
   velocity(): Observable<Velocity> {
-    return this.mqttService.observe('ball/velocity').pipe(switchMap(message => {
-      const velocity: Velocity = JSON.parse(message.payload.toString());
+    return this.mqttService.observe('ball/velocity/kmh').pipe(switchMap(message => {
+
+      const payload = message.payload.toString();
+      const velocity: Velocity = {velocity: Number(payload)};
       const roundedVelocity = Math.round(velocity.velocity);
       return of({velocity: roundedVelocity});
     }));
   }
 
   mockVelocityFromMqtt(velocity: Velocity): Observable<void> {
-    return this.mqttService.publish('ball/velocity', JSON.stringify(velocity));
+    return this.mqttService.publish('ball/velocity/kmh', velocity.velocity.toString());
   }
 }
