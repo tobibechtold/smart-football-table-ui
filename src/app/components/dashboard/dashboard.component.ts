@@ -37,8 +37,13 @@ export class DashboardComponent implements OnInit {
       } else {
         message = 'Team ' + winner.winners[0] + ' won the game';
       }
+      this.resetScore();
       this.showToast(message, 15000);
     });
+  }
+
+  private resetScore(): void {
+    this._score = {score: [0, 0]};
   }
 
   private showScoreToast() {
