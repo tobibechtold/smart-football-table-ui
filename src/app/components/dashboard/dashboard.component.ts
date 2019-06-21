@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
       let message: string;
 
       if (winner.winners.length > 1) {
-        message = 'Its a draw';
+        message = 'It\'s a draw';
       } else {
         message = 'Team ' + winner.winners[0] + ' won the game';
       }
