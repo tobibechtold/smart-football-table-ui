@@ -3,6 +3,7 @@
 [![BCH compliance](https://bettercodehub.com/edge/badge/smart-football-table/smart-football-table-ui?branch=master)](https://bettercodehub.com/)
 [![Maintainability](https://api.codeclimate.com/v1/badges/bd9873bb27ce7de3b7be/maintainability)](https://codeclimate.com/github/smart-football-table/smart-football-table-ui/maintainability)
 [![Known Vulnerabilities](https://snyk.io/test/github/smart-football-table/smart-football-table-ui/badge.svg?targetFile=package.json)](https://snyk.io/test/github/smart-football-table/smart-football-table-ui?targetFile=package.json)
+[![GitLicense](https://gitlicense.com/badge/smart-football-table/smart-football-table-ui)](https://gitlicense.com/license/smart-football-table/smart-football-table-ui)
 
 # SmartFootballTableUi
 
