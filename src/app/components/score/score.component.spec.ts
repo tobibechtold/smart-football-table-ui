@@ -5,6 +5,7 @@ import { MatCardModule, MatIconModule, MatMenuModule } from '@angular/material';
 import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
 import { of } from 'rxjs';
 import { environment } from '../../../environments/environment';
+import { By } from '@angular/platform-browser';
 
 describe('ScoreComponent', () => {
   let component: ScoreComponent;
@@ -38,9 +39,10 @@ describe('ScoreComponent', () => {
   });
 
   it('should display fixed score', () => {
-    const cardContent = fixture.nativeElement.querySelector('.dashboard-card-content');
-    const score = cardContent.querySelector('h1').textContent;
+    const scoreLeft = fixture.debugElement.query(By.css('.score.left'));
+    const scoreRight = fixture.debugElement.query(By.css('.score.right'));
 
-    expect(score).toBe('1 - 1');
+    expect(scoreLeft.nativeElement.textContent.trim()).toBe('1');
+    expect(scoreRight.nativeElement.textContent.trim()).toBe('1');
   });
 });

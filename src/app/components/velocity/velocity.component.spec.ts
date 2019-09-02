@@ -7,6 +7,7 @@ import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
 import { of } from 'rxjs';
 import { GameStateService } from '../../services/game-state.service';
 import { environment } from '../../../environments/environment';
+import { By } from '@angular/platform-browser';
 
 describe('VelocityComponent', () => {
   let component: VelocityComponent;
@@ -46,9 +47,8 @@ describe('VelocityComponent', () => {
     fixture.detectChanges();
 
     fixture.whenStable().then(() => {
-      const cardContent = fixture.nativeElement.querySelector('.dashboard-card-content');
-      const velocity = cardContent.querySelector('h1').textContent;
-      expect(velocity).toBe('46 km/h');
+      const velocity = fixture.debugElement.query(By.css('.velocity-value'));
+      expect(velocity.nativeElement.textContent.trim()).toBe('46');
     });
   }));
 });

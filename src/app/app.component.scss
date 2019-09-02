@@ -15,5 +15,10 @@
   background-image: url("../assets/bg1.jpg");
   background-repeat: repeat-y;
   background-size: cover;
-  height: 100vh;
+}
+
+@media(min-width: 768px) {
+  .sft-app {
+    height: 100vh;
+  }
 }
