@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { VelocityService } from '../../services/velocity.service';
 import { Velocity } from '../../models/velocity';
 import { GameStateService } from '../../services/game-state.service';
-import { interval } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-velocity',
