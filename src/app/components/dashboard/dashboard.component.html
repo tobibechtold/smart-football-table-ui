@@ -1,13 +1,13 @@
-<div class="grid-container">
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <app-score></app-score>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <app-velocity></app-velocity>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <app-heatmap></app-heatmap>
-    </mat-grid-tile>
-  </mat-grid-list>
+<div class="row">
+  <div class="col-sm-6 dashboard-card">
+    <app-score></app-score>
+  </div>
+  <div class="col-sm-6 dashboard-card">
+    <app-velocity></app-velocity>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6 dashboard-card">
+    <app-heatmap></app-heatmap>
+  </div>
 </div>
