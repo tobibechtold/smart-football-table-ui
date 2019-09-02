@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ScoreComponent } from './score.component';
 import { ScoreService } from '../../services/score.service';
-import { MatCardModule, MatIconModule, MatMenuModule } from '@angular/material';
+import { MatIconModule } from '@angular/material';
 import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
 import { of } from 'rxjs';
 import { environment } from '../../../environments/environment';
@@ -21,7 +21,7 @@ describe('ScoreComponent', () => {
     scoreService.score.and.returnValue(of(1));
     TestBed.configureTestingModule({
       declarations: [ ScoreComponent ],
-      imports: [MatCardModule, MatMenuModule, MatIconModule, MqttModule.forRoot(MQTT_SERVICE_OPTIONS)],
+      imports: [MatIconModule, MqttModule.forRoot(MQTT_SERVICE_OPTIONS)],
       providers: [{provide: ScoreService, useValue: scoreService}]
     })
     .compileComponents();

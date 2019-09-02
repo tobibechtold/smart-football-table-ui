@@ -2,7 +2,7 @@ import { async, ComponentFixture, fakeAsync, TestBed } from '@angular/core/testi
 
 import { VelocityComponent } from './velocity.component';
 import { VelocityService } from '../../services/velocity.service';
-import { MatCardModule, MatIconModule, MatMenuModule } from '@angular/material';
+import { MatIconModule } from '@angular/material';
 import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
 import { of } from 'rxjs';
 import { GameStateService } from '../../services/game-state.service';
@@ -26,7 +26,7 @@ describe('VelocityComponent', () => {
     gameStateService.gameStart.and.returnValue(of({}));
     TestBed.configureTestingModule({
       declarations: [ VelocityComponent ],
-      imports: [MatCardModule, MatMenuModule, MatIconModule, MqttModule.forRoot(MQTT_SERVICE_OPTIONS)],
+      imports: [MatIconModule, MqttModule.forRoot(MQTT_SERVICE_OPTIONS)],
       providers: [{provide: VelocityService, useValue: velocityService}, {provide: GameStateService, useValue: gameStateService}]
     })
     .compileComponents();
