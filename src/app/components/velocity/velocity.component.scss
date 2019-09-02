@@ -1,5 +1,14 @@
-.card-img-top {
-  width: 100%;
-  height: 64px;
-  object-fit: cover;
+.velocity-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.velocity-value {
+  font-size: 5rem;
+}
+
+.velocity-unit {
+  font-size: 3rem;
 }

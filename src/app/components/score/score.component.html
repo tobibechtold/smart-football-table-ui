@@ -1,8 +1,24 @@
-<div class="card">
+<div class="card" style="height: 100%">
   <div class="card-header">
     Spielstand
   </div>
-  <div class="card-body">
-    <h1>{{this._score.score[0]}} : {{this._score.score[1]}}</h1>
+  <div class="card-body text-center">
+    <div class="score-content">
+      <div class="jersey left">
+        <img src="../../../assets/jersey.svg">
+      </div>
+      <div class="score left">
+        {{this._score.score[0]}}
+      </div>
+      <div class="score divider">
+        :
+      </div>
+      <div class="score right">
+        {{this._score.score[1]}}
+      </div>
+      <div class="jersey right">
+        <img src="../../../assets/jersey_black.svg">
+      </div>
+    </div>
   </div>
 </div>

@@ -1,1 +1,19 @@
+.app-icon {
+  font-size: 32px;
+  height: 32px;
+  width: 32px;
+  margin-right: 12px;
+}
 
+.navbar-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.sft-app {
+  background-image: url("../assets/bg1.jpg");
+  background-repeat: repeat-y;
+  background-size: cover;
+  height: 100vh;
+}
