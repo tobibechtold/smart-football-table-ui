@@ -6,6 +6,7 @@ import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
 import { of } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { By } from '@angular/platform-browser';
+import { GameStateService } from '../../services/game-state.service';
 
 describe('ScoreComponent', () => {
   let component: ScoreComponent;
@@ -22,7 +23,7 @@ describe('ScoreComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ ScoreComponent ],
       imports: [MatIconModule, MqttModule.forRoot(MQTT_SERVICE_OPTIONS)],
-      providers: [{provide: ScoreService, useValue: scoreService}]
+      providers: [{provide: ScoreService, useValue: scoreService}, GameStateService]
     })
     .compileComponents();
   }));
