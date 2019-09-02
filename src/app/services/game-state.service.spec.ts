@@ -39,4 +39,8 @@ describe('GameStateService', () => {
 
     service.mockGameOverFromMqtt({winners: [0]}).subscribe(() => {});
   });
+
+  it('should publish game reset', (done) => {
+    service.resetGame().subscribe(() => done());
+  });
 });

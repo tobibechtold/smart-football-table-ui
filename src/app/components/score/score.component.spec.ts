@@ -12,6 +12,7 @@ describe('ScoreComponent', () => {
   let component: ScoreComponent;
   let fixture: ComponentFixture<ScoreComponent>;
   let scoreService;
+  let gameStateService;
   const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
     hostname: environment.mqttHost,
     port: environment.mqttPort,
@@ -20,10 +21,11 @@ describe('ScoreComponent', () => {
   beforeEach(async(() => {
     scoreService = jasmine.createSpyObj('ScoreService', ['score']);
     scoreService.score.and.returnValue(of(1));
+    gameStateService = jasmine.createSpyObj('GameStateService', ['resetGame']);
     TestBed.configureTestingModule({
       declarations: [ ScoreComponent ],
       imports: [MatIconModule, MqttModule.forRoot(MQTT_SERVICE_OPTIONS)],
-      providers: [{provide: ScoreService, useValue: scoreService}, GameStateService]
+      providers: [{provide: ScoreService, useValue: scoreService}, {provide: GameStateService, useValue: gameStateService}]
     })
     .compileComponents();
   }));
@@ -45,5 +47,12 @@ describe('ScoreComponent', () => {
 
     expect(scoreLeft.nativeElement.textContent.trim()).toBe('1');
     expect(scoreRight.nativeElement.textContent.trim()).toBe('1');
+  });
+
+  it('should reset game when button is pressed', () => {
+    gameStateService.resetGame.and.returnValue(of());
+    component.resetGame();
+
+    expect(gameStateService.resetGame).toHaveBeenCalled();
   });
 });
