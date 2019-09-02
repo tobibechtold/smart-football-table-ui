@@ -13,6 +13,7 @@ import { ScoreService } from '../../services/score.service';
 import { GameStateService } from '../../services/game-state.service';
 import { of } from 'rxjs';
 import { SnackBarMessageComponent } from '../snack-bar-message/snack-bar-message.component';
+import { NgxGaugeModule } from 'ngx-gauge';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -35,6 +36,7 @@ describe('DashboardComponent', () => {
         NoopAnimationsModule,
         LayoutModule,
         MatSnackBarModule,
+        NgxGaugeModule,
         MatIconModule,
         MqttModule.forRoot(MQTT_SERVICE_OPTIONS)
       ],

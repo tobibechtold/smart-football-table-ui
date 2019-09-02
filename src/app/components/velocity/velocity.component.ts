@@ -12,6 +12,14 @@ import { switchMap } from 'rxjs/operators';
 })
 export class VelocityComponent implements OnInit {
   _velocity: Velocity = {velocity: 0};
+  gaugeType = 'arch';
+  gaugeLabel = 'Geschwindigkeit';
+  gaugeAppendText = 'km/h';
+  thresholdConfig = {
+    '0': {color: 'green'},
+    '40': {color: 'orange'},
+    '75.5': {color: 'red'}
+  };
 
   constructor(private velocityService: VelocityService, private gameStateService: GameStateService) { }
 

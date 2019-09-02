@@ -4,12 +4,13 @@
   </div>
   <div class="card-body text-center">
     <div class="velocity-content">
-      <div class="velocity-value">
-        {{this._velocity.velocity}}
-      </div>
-      <div class="velocity-unit">
-        km/h
-      </div>
+      <ngx-gauge [type]="gaugeType"
+                 [value]="_velocity.velocity"
+                 [label]="gaugeLabel"
+                 [append]="gaugeAppendText"
+                 [thick]="12"
+                 [thresholds]="thresholdConfig">
+      </ngx-gauge>
     </div>
   </div>
 </div>

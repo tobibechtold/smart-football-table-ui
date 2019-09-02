@@ -13,6 +13,7 @@ import { VelocityComponent } from './components/velocity/velocity.component';
 import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
 import { environment } from '../environments/environment';
 import { SnackBarMessageComponent } from './components/snack-bar-message/snack-bar-message.component';
+import { NgxGaugeModule } from 'ngx-gauge';
 
 export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
   hostname: environment.mqttHost,
@@ -33,6 +34,7 @@ export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
+    NgxGaugeModule,
     MatIconModule,
     LayoutModule,
     MqttModule.forRoot(MQTT_SERVICE_OPTIONS)

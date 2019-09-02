@@ -17,6 +17,7 @@ import { VelocityComponent } from './components/velocity/velocity.component';
 import { ScoreComponent } from './components/score/score.component';
 import { HeatmapComponent } from './components/heatmap/heatmap.component';
 import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
+import { NgxGaugeModule } from 'ngx-gauge';
 
 describe('AppComponent', () => {
   const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
@@ -29,6 +30,7 @@ describe('AppComponent', () => {
       imports: [
         RouterTestingModule,
         NoopAnimationsModule,
+        NgxGaugeModule,
         MatButtonModule,
         MatCheckboxModule,
         MatSidenavModule,
