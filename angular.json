@@ -27,8 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "src/smart-football-table-theme.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           },

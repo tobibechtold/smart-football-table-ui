@@ -1,13 +1,7 @@
 import { LayoutModule } from '@angular/cdk/layout';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {
-  MatButtonModule,
-  MatCardModule,
-  MatGridListModule,
-  MatIconModule,
-  MatMenuModule, MatSnackBar, MatSnackBarModule,
-} from '@angular/material';
+import { MatIconModule, MatSnackBar, MatSnackBarModule, } from '@angular/material';
 
 import { DashboardComponent } from './dashboard.component';
 import { HeatmapComponent } from '../heatmap/heatmap.component';
@@ -19,6 +13,7 @@ import { ScoreService } from '../../services/score.service';
 import { GameStateService } from '../../services/game-state.service';
 import { of } from 'rxjs';
 import { SnackBarMessageComponent } from '../snack-bar-message/snack-bar-message.component';
+import { NgxGaugeModule } from 'ngx-gauge';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -40,12 +35,9 @@ describe('DashboardComponent', () => {
       imports: [
         NoopAnimationsModule,
         LayoutModule,
-        MatButtonModule,
-        MatCardModule,
         MatSnackBarModule,
-        MatGridListModule,
+        NgxGaugeModule,
         MatIconModule,
-        MatMenuModule,
         MqttModule.forRoot(MQTT_SERVICE_OPTIONS)
       ],
       providers: [

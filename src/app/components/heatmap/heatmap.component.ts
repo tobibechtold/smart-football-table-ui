@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { HeatmapService } from '../../services/heatmap.service';
 import * as heatmap from 'heatmap.js';
 import { GameStateService } from '../../services/game-state.service';
@@ -12,7 +12,7 @@ import { environment } from '../../../environments/environment';
 export class HeatmapComponent implements AfterViewInit {
 
   @ViewChild('heatmapDiv')
-  private heatmapDiv: any;
+  private heatmapDiv: ElementRef;
 
   @Input()
   public height = 250;
@@ -25,8 +25,8 @@ export class HeatmapComponent implements AfterViewInit {
   constructor(private heatmapService: HeatmapService, private gameStateService: GameStateService) {
     this.heatmapService.heatmapData().subscribe(position => {
       if (this.heatMapInstance) {
-        const xTranslated = position.x * this.width;
-        const yTranslated = position.y * this.height;
+        const xTranslated = position.x * this.heatmapDiv.nativeElement.offsetWidth;
+        const yTranslated = position.y * this.heatmapDiv.nativeElement.offsetHeight;
         this.heatMapInstance.addData({x: xTranslated, y: yTranslated, value: 1});
       }
     });

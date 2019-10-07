@@ -2,11 +2,13 @@ import { async, ComponentFixture, fakeAsync, TestBed } from '@angular/core/testi
 
 import { VelocityComponent } from './velocity.component';
 import { VelocityService } from '../../services/velocity.service';
-import { MatCardModule, MatIconModule, MatMenuModule } from '@angular/material';
+import { MatIconModule } from '@angular/material';
 import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
 import { of } from 'rxjs';
 import { GameStateService } from '../../services/game-state.service';
 import { environment } from '../../../environments/environment';
+import { By } from '@angular/platform-browser';
+import { NgxGaugeModule } from 'ngx-gauge';
 
 describe('VelocityComponent', () => {
   let component: VelocityComponent;
@@ -24,11 +26,15 @@ describe('VelocityComponent', () => {
     gameStateService = jasmine.createSpyObj('GameStateService', ['gameStart', 'gameOver']);
     gameStateService.gameStart.and.returnValue(of({}));
     TestBed.configureTestingModule({
-      declarations: [ VelocityComponent ],
-      imports: [MatCardModule, MatMenuModule, MatIconModule, MqttModule.forRoot(MQTT_SERVICE_OPTIONS)],
-      providers: [{provide: VelocityService, useValue: velocityService}, {provide: GameStateService, useValue: gameStateService}]
+      declarations: [VelocityComponent],
+      imports: [MatIconModule, NgxGaugeModule,
+        MqttModule.forRoot(MQTT_SERVICE_OPTIONS)],
+      providers: [{provide: VelocityService, useValue: velocityService}, {
+        provide: GameStateService,
+        useValue: gameStateService
+      }]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -46,9 +52,8 @@ describe('VelocityComponent', () => {
     fixture.detectChanges();
 
     fixture.whenStable().then(() => {
-      const cardContent = fixture.nativeElement.querySelector('.dashboard-card-content');
-      const velocity = cardContent.querySelector('h1').textContent;
-      expect(velocity).toBe('46 km/h');
+      const velocity = fixture.debugElement.query(By.css('#text'));
+      expect(velocity.nativeElement.textContent.trim()).toBe('46');
     });
   }));
 });

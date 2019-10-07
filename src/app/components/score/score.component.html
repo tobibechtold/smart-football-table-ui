@@ -1,17 +1,25 @@
-<mat-card class="dashboard-card">
-  <mat-card-header>
-    <mat-card-title class="card-title">
-      Spielstand
-      <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu" xPosition="before">
-        <button mat-menu-item>Expand</button>
-        <button mat-menu-item>Remove</button>
-      </mat-menu>
-    </mat-card-title>
-  </mat-card-header>
-  <mat-card-content class="dashboard-card-content">
-    <h1>{{this._score.score[0]}} - {{this._score.score[1]}}</h1>
-  </mat-card-content>
-</mat-card>
+<div class="card" style="height: 100%">
+  <div class="card-header">
+    Spielstand
+  </div>
+  <div class="card-body text-center">
+    <div class="score-content">
+      <div class="jersey left">
+        <img src="../../../assets/jersey.svg">
+      </div>
+      <div class="score left">
+        {{this._score.score[0]}}
+      </div>
+      <div class="score divider">
+        :
+      </div>
+      <div class="score right">
+        {{this._score.score[1]}}
+      </div>
+      <div class="jersey right">
+        <img src="../../../assets/jersey_black.svg">
+      </div>
+    </div>
+    <button (click)="resetGame()" id="reset-button" type="button" class="btn btn-danger">Spiel zurücksetzen</button>
+  </div>
+</div>

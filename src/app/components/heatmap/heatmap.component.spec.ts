@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeatmapComponent } from './heatmap.component';
 import { HeatmapService } from '../../services/heatmap.service';
-import { MatCardModule, MatIconModule, MatMenuModule } from '@angular/material';
+import { MatIconModule } from '@angular/material';
 import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
 import { of } from 'rxjs';
 import { GameStateService } from '../../services/game-state.service';
@@ -26,7 +26,7 @@ describe('HeatmapComponent', () => {
     gameStateService.gameOver.and.returnValue(of({winners: [0]}));
     TestBed.configureTestingModule({
       declarations: [ HeatmapComponent ],
-      imports: [MatCardModule, MatMenuModule, MatIconModule, MqttModule.forRoot(MQTT_SERVICE_OPTIONS)],
+      imports: [MatIconModule, MqttModule.forRoot(MQTT_SERVICE_OPTIONS)],
       providers: [{provide: HeatmapService, useValue: heatmapService}, {provide: GameStateService, useValue: gameStateService}]
     })
     .compileComponents();

@@ -1,26 +1,24 @@
-.main-container {
+.app-icon {
+  font-size: 32px;
+  height: 32px;
+  width: 32px;
+  margin-right: 12px;
+}
+
+.navbar-content {
   display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  flex-direction: row;
+  align-items: center;
 }
 
-.main-content {
-  width: 100%;
-  height: 100%;
-}
-
-.sidenav-container {
+.sft-app {
   background-image: url("../assets/bg1.jpg");
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-size: cover;
-  height: 100%;
-  width: 100%;
 }
 
-h1.main-container {
-  margin-left: 8px;
+@media(min-width: 768px) {
+  .sft-app {
+    height: 100vh;
+  }
 }

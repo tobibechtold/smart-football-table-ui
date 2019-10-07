@@ -26,6 +26,10 @@ export class GameStateService {
     }));
   }
 
+  resetGame(): Observable<void> {
+    return this.mqttService.publish('game/reset', '');
+  }
+
   mockGameStartFromMqtt(): Observable<void> {
     return this.mqttService.publish('game/start', '');
   }

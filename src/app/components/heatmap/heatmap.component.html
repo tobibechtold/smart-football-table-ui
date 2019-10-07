@@ -1,17 +1,6 @@
-<mat-card class="dashboard-card">
-  <mat-card-header>
-    <mat-card-title class="card-title">
-      Heatmap
-      <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu" xPosition="before">
-        <button mat-menu-item>Expand</button>
-        <button mat-menu-item>Remove</button>
-      </mat-menu>
-    </mat-card-title>
-  </mat-card-header>
-  <mat-card-content class="dashboard-card-content">
-    <div #heatmapDiv [style.width.px]="width? width: 500" [style.height.px]="height? height: 500"></div>
-  </mat-card-content>
-</mat-card>
+<div class="card">
+  <div class="card-header">Heatmap</div>
+  <div class="card-body">
+    <div #heatmapDiv style="width: 100%; min-height: 150px"></div>
+  </div>
+</div>
