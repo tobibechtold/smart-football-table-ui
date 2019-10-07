@@ -7,7 +7,6 @@ module.exports = function (config) {
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
-      require('@pact-foundation/karma-pact'),
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
@@ -31,11 +30,6 @@ module.exports = function (config) {
       ]
     },
     reporters: ['progress', 'kjhtml', 'coverage'],
-    pact: [{
-      consumer: 'ui',
-      provider: 'cognition',
-      dir: 'pacts'
-    }],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
