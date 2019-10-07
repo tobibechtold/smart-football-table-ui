@@ -12,20 +12,6 @@ describe('MessageProviderContract', () => {
     });
   });
 
-  it('stores a message', () => {
-    const expectedMessage: Message = {
-      description: 'desc',
-      metadata: undefined,
-      contents: undefined,
-      providerStates: [],
-      matchingRules: undefined
-    };
-
-    underTest.addMessage(expectedMessage);
-
-    expect(underTest.messages.length).toBe(1);
-  });
-
   it('creates an empty contract', () => {
     const expectedContract = {
       consumer: {

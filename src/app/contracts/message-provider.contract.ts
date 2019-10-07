@@ -1,14 +1,8 @@
 export class MessageProviderContract {
 
   state: any = {};
-  messages: Array<Message> = [];
-  matcher: string;
 
   constructor(private config: MessageConfig) {}
-
-  addMessage(message: Message): void {
-    this.messages.push(message);
-  }
 
   public given(providerState: string) {
     if (providerState) {
