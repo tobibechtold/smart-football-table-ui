@@ -16,6 +16,8 @@ before_install:
   - docker pull eclipse-mosquitto
   - docker run -d -p 9001:9001 -v $(pwd)/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro eclipse-mosquitto
 before_script:
+  - "sudo chown root /opt/google/chrome/chrome-sandbox"
+  - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
   - npm install -g @angular/cli
   - npm install codecov -g
 script:
