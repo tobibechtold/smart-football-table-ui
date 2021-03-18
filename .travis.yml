@@ -22,7 +22,7 @@ before_script:
   - npm install codecov -g
 script:
   - ng lint
-  - npm run test-headless
+  - npm test
   - docker build .
 scripts:
 

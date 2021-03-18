@@ -8,7 +8,7 @@
     "test:local": "ng test --browsers=Chrome",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "test-headless": "ng test --code-coverage --watch=false --browsers=ChromeHeadless",
+    "test": "ng test --code-coverage --watch=false --browsers=ChromeHeadless",
     "report-coverage": "codecov"
   },
   "private": true,
