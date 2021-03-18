@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeatmapComponent } from './heatmap.component';
 import { HeatmapService } from '../../services/heatmap.service';
-import { MatIconModule } from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
 import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
 import { of } from 'rxjs';
 import { GameStateService } from '../../services/game-state.service';

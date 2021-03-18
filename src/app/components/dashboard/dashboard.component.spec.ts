@@ -1,7 +1,8 @@
 import { LayoutModule } from '@angular/cdk/layout';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatIconModule, MatSnackBar, MatSnackBarModule, } from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { DashboardComponent } from './dashboard.component';
 import { HeatmapComponent } from '../heatmap/heatmap.component';
