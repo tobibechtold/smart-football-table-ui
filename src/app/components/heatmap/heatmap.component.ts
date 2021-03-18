@@ -11,7 +11,7 @@ import { environment } from '../../../environments/environment';
 })
 export class HeatmapComponent implements AfterViewInit {
 
-  @ViewChild('heatmapDiv')
+  @ViewChild('heatmapDiv', { static: true })
   private heatmapDiv: ElementRef;
 
   @Input()
