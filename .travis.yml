@@ -14,10 +14,6 @@ script:
 addons:
   chrome: stable
 
-branches:
-  only:
-    - master
-
 services:
   - docker
 
