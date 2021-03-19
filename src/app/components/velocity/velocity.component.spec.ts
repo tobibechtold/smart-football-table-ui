@@ -2,7 +2,7 @@ import { async, ComponentFixture, fakeAsync, TestBed } from '@angular/core/testi
 
 import { VelocityComponent } from './velocity.component';
 import { VelocityService } from '../../services/velocity.service';
-import { MatIconModule } from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
 import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
 import { of } from 'rxjs';
 import { GameStateService } from '../../services/game-state.service';

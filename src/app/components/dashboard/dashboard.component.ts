@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ScoreService } from '../../services/score.service';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { GameStateService } from '../../services/game-state.service';
 import { SnackBarMessageComponent } from '../snack-bar-message/snack-bar-message.component';
 import { Score } from '../../models/score';
