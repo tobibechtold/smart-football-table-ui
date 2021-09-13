@@ -35,7 +35,7 @@ jobs:
       # TODO depend od gha or use docker implicitly? docker run -d -p 9001:9001 -v $(pwd)/.ci/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro eclipse-mosquitto
       uses: namoshek/mosquitto-github-action@v1
       with:
-	# it would be better to pin the version (to the version used in docker image). Defaults to latest
+        # it would be better to pin the version (to the version used in docker image). Defaults to latest
         # version: '2.0'
         ports: '9001:9001'
         config: ${{ github.workspace }}/.ci/mosquitto.conf
