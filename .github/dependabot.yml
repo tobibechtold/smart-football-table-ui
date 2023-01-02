@@ -1,11 +1,17 @@
 version: 2
 
 updates:
-- package-ecosystem: "github-actions"
+- package-ecosystem: 'npm'
   directory: "/"
   schedule:
-    # Check for updates to GitHub Actions every weekday
     interval: "daily"
     time: "04:00"
   assignees:
   - tobibechtold
+- package-ecosystem: "github-actions"
+  directory: "/"
+  schedule:
+    interval: "daily"
+    time: "04:00"
+  assignees:
+  - pfichtner
