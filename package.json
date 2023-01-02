@@ -28,7 +28,7 @@
     "bootstrap": "^4.6.0",
     "core-js": "^2.6.12",
     "heatmap.js": "^2.0.5",
-    "jquery": "^3.6.0",
+    "jquery": "^3.6.3",
     "leaflet": "^1.7.1",
     "leaflet-heatmap": "^1.0.0",
     "ngx-gauge": "^1.1.0",
